@@ -1,0 +1,59 @@
+<!doctype html>
+
+<html ng-app="recipeModule">
+<head>
+
+  <meta charset='utf-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+  <title>Node/Angular Recipe App</title>
+
+  <link rel='stylesheet' href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+
+  <style>
+      html                    { overflow-y:scroll; }
+      body                    { padding-top:50px; }
+      #recipe-list              { margin-bottom:30px; }
+  </style>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><!-- load jquery -->
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script><!-- load angular -->
+  <script src="/core.js"></script>
+
+</head>
+
+<body ng-controller='mainController'>
+  <div class='container'>
+    <div class='jumbotron text-center'>
+      <h1>I Hold Recipes <span class='label label-info'>{{ recipes.length }}</span></h1>
+    </div>
+
+    <div id='recipe-list' class='row'>
+      <div class='col-sm-4 col-sm-offset-4'>
+
+        <div class='checkbox' ng-repeat='recipe in recipes'>
+          <label>
+            <input type='checkbox' ng-click='deleteRecipe(recipe._id)'> {{ recipe.title }}
+          </label>
+        </div>
+      </div>
+    </div>
+
+      <div id='recipe-form' class='row'>
+        <div class='col-sm-8 col-sm-offset-2 text-center'>
+          <form>
+            <div class='form-group'>
+              <input type='text' class='form-control input-lg text-center' placeholder='insert recipe title here' ng-model='formData.title'>
+              <input type='text' class='form-control input-lg text-center' placeholder='insert recipe ingredients here' ng-model='formData.ingredients'>
+              <input type='text' class='form-control input-lg text-center' placeholder='insert recipe description here' ng-model='formData.directions'>
+
+            </div>
+
+            <button type='submit' class='btn btn-primary btn-lg' ng-click='createRecipe()'>Add</button>
+          </form>
+        </div>
+      </div>
+
+  </div>
+</body>
+</html>
