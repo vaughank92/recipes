@@ -17,8 +17,10 @@
   </style>
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><!-- load jquery -->
-  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.4/angular.min.js"></script><!-- load angular -->
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.4/angular.js"></script><!-- load angular -->
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.4/angular-route.js"></script>
   <script src="/js/controllers/main.js"></script>
+  <!-- <script src="/routes.js"></script> -->
   <script src="/js/services/recipes.js"></script>
   <script src="/js/core.js"></script>
 
@@ -29,6 +31,10 @@
     <div class='jumbotron text-center'>
       <h1>I Hold Recipes <span class='label label-info'>{{ recipes.length }}</span></h1>
     </div>
+
+    <a href="#testing"><i class="fa fa-home"></i>Testing</a>
+
+    <div ng-view></div>
 
     <div id='recipe-list' class='row'>
       <div class='col-sm-4 col-sm-offset-4'>

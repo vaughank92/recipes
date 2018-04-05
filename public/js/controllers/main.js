@@ -1,4 +1,4 @@
-angular.module('recipeController', [])
+angular.module('recipeController', ['ngRoute'])
   .controller('mainController', function($scope, $http, Recipes) {
     $scope.formData = {};
 
@@ -32,4 +32,10 @@ angular.module('recipeController', [])
             console.log('Error: ' + data);
           });
       };
+  })
+  .config(function($routeProvider) {
+    $routeProvider
+      .when('/testing', {
+        templateUrl: '../recipe.html'
+      });
   });
